@@ -21,7 +21,9 @@ input, select {
 
 /* 디자인 평준화, 해당 공공 UI를 평준화하자!(브라우저종류 관계 없이!) */
 select,
-input[type="text"] {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
   /* block이 되더라도 */
   display: block;
   /* width: auto가 컨테이닝 블록 기준으로 가득차지 않는다. */
@@ -35,7 +37,7 @@ input[type="text"] {
   padding: 0 10px;
   /* width: 100%에 padding이 플러스 알파 됨 -> 고것을 막겠당. */
   box-sizing: border-box;
-  
+
   box-shadow: inset 0 0 10px red;
 }
 
