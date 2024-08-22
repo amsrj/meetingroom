@@ -13,45 +13,51 @@
     <div class="wrapper">
       <h1>회의실 예약</h1>
       <form action="데이터를서버쪽에보낸당"> 
-
-        <!-- 입력 필드들의 그룹 설정-->
+        
         <fieldset>
-          <!-- 그룹의 제목 (필수로 맨첫번째 입력 -->
           <legend>일반 정보</legend>
+          <div>
+            <label for="">어떤 용도로 이용할 예정이신가요?</label>
+            <select name="subject">
+              <option value="0">디자이너와의 티타임</option>
+              <option value="1">개발자와의 코드 리뷰</option>
+              <option value="2" selected>사장님과 연봉 협상</option>
+            </select>
+          </div>
+   
+          <div>
+            <label>회의의 규모는 어떠한가요?</label>
+            <label><input type="radio" name="size">2~8인</label>
+            <label><input type="radio" name="size">9~20인</label>
+            <label><input type="radio" name="size" checked disabled>21~100인</label>
+          </div>
 
-          <label for="">어떤 용도로 이용할 예정이신가요?</label>
-          <select name="subject"> <!-- subject: 2 이런 형식으로 서버쪽에 전달됨 , name의 역할에 대하여 공부 필요 -->
-            <option value="0">디자이너와의 티타임</option>
-            <option value="1">개발자와의 코드 리뷰</option>
-            <option value="2" selected>사장님과 연봉 협상</option>
-          </select>
-    <hr>
-          <label>회의의 규모는 어떠한가요?</label>
-          <!--name이 동일하면 같은 데이터라는 뜻, 세개중 하나 선택-->
-          <label><input type="radio" name="size">2~8인</label>
-          <label><input type="radio" name="size">9~20인</label>
-          <!-- disabled는 해당 필드를 아예 비활성화 시킴 -->
-          <label><input type="radio" name="size" checked disabled>21~100인</label>
-    <hr>
-          <label>어떤 장비가 필요 하신가요?</label>
-          <!-- 체크박스는 다중선택 가능 -->
-          <label><input type="checkbox" checked>빔 프로젝터</label>
-          <label><input type="checkbox">화이트보드</label>
-          <label><input type="checkbox">전동데스크</label>
+          <div>
+            <label>어떤 장비가 필요 하신가요?</label>
+            <label><input type="checkbox" checked>빔 프로젝터</label>
+            <label><input type="checkbox">화이트보드</label>
+            <label><input type="checkbox">전동데스크</label>
+          </div>
+
         </fieldset>
 
         <fieldset>
           <legend>개인 정보</legend>
-          <label for="name">예약자의 성함을 알려 주세요.</label>
-          <!-- readonly는 값으로서 의미가 있지만, 사용자가 수정을 직접적으로 못하게 막는것 -->
-          <!-- value는 초기의 값 셋팅 -->
-          <input name="username" id="name" type="text" value="이종찬" readonly placeholder="성함 입력">
-    <hr>
-          <label for="name">날짜를 입력 해주세요.</label>
-          <input name="date" id="name" type="date">
-    <hr>
-          <label for="topic">회의의 주제를 남겨 주세요.</label>
-          <textarea id="topic" placeholder="주제에 대한 짧은 요약"></textarea>
+          <div>
+            <label for="name">예약자의 성함을 알려 주세요.</label>
+            <input name="username" id="name" type="text" value="이종찬" readonly placeholder="성함 입력">
+          </div>
+
+          <div>
+            <label for="name">날짜를 입력 해주세요.</label>
+            <input name="date" id="name" type="date">
+          </div>
+  
+          <div>
+            <label for="topic">회의의 주제를 남겨 주세요.</label>
+            <textarea id="topic" placeholder="주제에 대한 짧은 요약"></textarea>
+          </div>
+
         </fieldset>
   
         <button type="submit">예약하기</button>
