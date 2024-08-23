@@ -92,6 +92,21 @@ body {
   --input-padding: 10px;
 }
 
+.choice {
+  box-shadow: inset 0 0 10px red;
+  display: inline-block;
+}
+
+/* checkbox와 radio button은 같은 계열이당. 그래서 .choice라는 공통의 클래스를 만들었다! */
+.choice::before {
+  content: '⬜';
+}
+
+/* :has()와 :checked 가상 클래스 + ::before 가상 요소의 환상의 콜라보 */
+.choice:has(:checked)::before {
+  content: '✅';
+}
+
 /* Component */
 .wrapper {
   max-width: 600px;
