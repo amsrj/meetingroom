@@ -65,6 +65,8 @@ textarea {
   --input-height: 44px;
   --input-fs: 1.4rem;
   --input-padding: 14px;
+
+  --effect-focus: 0 0 0 4px rgb( 131 208 156 / .25 );
 }
 
 /* Typography */
@@ -89,7 +91,7 @@ body {
 /* :has()는 꿀이지만, 현재 상황에서는 모든 input, textarea 등 입력 필드 전체 대상으로 해당 focus가 표현되어야 하기 때문에 focus전용으로 나온 :focus-within을 사용하는것이 합리적 */ 
 .field:focus-within {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 6px rgb( 131 208 156 / .25 );
+  box-shadow: var(--effect-focus);
 }
 
 .field.type_small {
@@ -132,18 +134,22 @@ body {
 /* radio button 일반 상태 */
 .choice.type_radio::before {
   border-radius: 50%;
-  background-color: var(--color-primary);
-  
-  /* 안쪽 그림자! x, y는 0, blur 0, spead 10 => 배경색이 있는데 안보이게 설정! */
-  box-shadow: inset 0 0 0 10px white;
+
+  /* 결국 이미지로 해당 부분 디자인 교체 */
+  background-position: center center;
+  background-image: url(images/circle.svg);
+  background-size: 0;
 }
 
 /* radio button 선택된 상태 */
 .choice.type_radio:has(:checked)::before {
-  /* 안쪽 그림자! x, y는 0, blur 0, spead 5 */
-  box-shadow: inset 0 0 0 5px white;
+  background-size: 8px;
 }
 
+.choice:has(:focus)::before {
+  border-color: var(--color-primary);
+  box-shadow: var(--effect-focus);
+}
 
 /* Component */
 .wrapper {
