@@ -72,8 +72,8 @@ body {
   transition: all .4s;
 }
 
-/* :has()의 등장! input:focus 되었을 당시의 .field(부모)를 선택하여 스타일링! .field는 그냥 div라 :focus 아니됨! */ 
-.field:has(input:focus) {
+/* :has()는 꿀이지만, 현재 상황에서는 모든 input, textarea 등 입력 필드 전체 대상으로 해당 focus가 표현되어야 하기 때문에 focus전용으로 나온 :focus-within을 사용하는것이 합리적 */ 
+.field:focus-within {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 6px rgb( 131 208 156 / .25 );
 }
