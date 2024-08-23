@@ -18,11 +18,13 @@
           <legend>일반 정보</legend>
           <div>
             <label for="">어떤 용도로 이용할 예정이신가요?</label>
-            <select name="subject">
-              <option value="0">디자이너와의 티타임</option>
-              <option value="1">개발자와의 코드 리뷰</option>
-              <option value="2" selected>사장님과 연봉 협상</option>
-            </select>
+            <div class="field">
+              <select name="subject">
+                <option value="0">디자이너와의 티타임</option>
+                <option value="1">개발자와의 코드 리뷰</option>
+                <option value="2" selected>사장님과 연봉 협상</option>
+              </select>
+            </div>
           </div>
    
           <div style="display: none;">
@@ -45,12 +47,16 @@
           <legend>개인 정보</legend>
           <div>
             <label for="name">예약자의 성함을 알려 주세요.</label>
-            <input name="username" id="name" type="text" value="이종찬" readonly placeholder="성함 입력">
+            <div class="field">
+              <input name="username" id="name" type="text" value="이종찬" readonly placeholder="성함 입력">
+            </div>
           </div>
 
           <div>
             <label for="email">이메일을 입력 해주세요.</label>
-            <input name="email" id="email" type="email">
+            <div class="field">
+              <input name="email" id="email" type="email">
+            </div>
           </div>
   
           <div style="display: none;">
