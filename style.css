@@ -15,7 +15,7 @@ button {
 
 /* input과 select등은 공공 UI다. 반복해서 쓰이는게 기본값 */
 /* 그래서 초기화부터 진행 -> 바로 뒤이어 디자인 평준화를 진행 */ 
-input, select {
+input, select, textarea {
   all: unset;
 }
 
@@ -36,6 +36,14 @@ input[type="email"] {
   /* 텍스트의 안정적인 표현을 위해 좌우 padding */
   padding: 0 var(--input-padding);
   /* width: 100%에 padding이 플러스 알파 됨 -> 고것을 막겠당. */
+  box-sizing: border-box;
+}
+
+/* textarea의 기본 디자인 재구축 (평준화) */ 
+textarea {
+  display: block;
+  width: 100%; 
+  padding: var(--input-padding);
   box-sizing: border-box;
 }
 
@@ -68,7 +76,6 @@ body {
 .field {
   border: 2px solid #ddd;
   border-radius: 4px;
-
   transition: all .4s;
 }
 
