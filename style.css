@@ -30,11 +30,11 @@ input[type="email"] {
   width: 100%; /* 억지로 100% 때려 줘야 함! */
 
   /* 피그마 디자인을 참고하여 재조정 */
-  height: 44px;
-  line-height: 44px;
+  height: var(--input-height);
+  line-height: var(--input-height);
 
   /* 텍스트의 안정적인 표현을 위해 좌우 padding */
-  padding: 0 14px;
+  padding: 0 var(--input-padding);
   /* width: 100%에 padding이 플러스 알파 됨 -> 고것을 막겠당. */
   box-sizing: border-box;
 }
@@ -42,11 +42,22 @@ input[type="email"] {
 /* CSS Variables */
 :root {
   --font-ko: "Noto Sans KR", sans-serif;
+
+  /* 전역 변수, 모든 input이 가지고 있는 초기의 스타일링 */
+  --input-height: 44px;
+  --input-fs: 1.4rem;
+  --input-padding: 14px;
 }
 
 /* Typography */
 :root {
   font-family: var(--font-ko);
+  font-size: 62.5%; /* 기본 폰트 16px의 62.5% -> 10px */
+}
+
+body {
+  /* root의 font-size: 1.4배 */
+  font-size: 1.4rem;
 }
 
 /* Commons */
@@ -54,6 +65,13 @@ input[type="email"] {
 .field {
   border: 2px solid #ddd;
   border-radius: 4px;
+}
+
+.field.type_small {
+  /* 지역 변수 : 전역 변수값을 사용하지 않고 .field.type_small 마크업 내에서 사용되는 지역 변수를 만들어 입력창 커스텀 (좀 작은 버전!) */
+  --input-height: 32px;
+  --input-fs: 1.1rem;
+  --input-padding: 10px;
 }
 
 /* Component */
