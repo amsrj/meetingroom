@@ -68,11 +68,14 @@ body {
 .field {
   border: 2px solid #ddd;
   border-radius: 4px;
+
+  transition: all .4s;
 }
 
 /* :has()의 등장! input:focus 되었을 당시의 .field(부모)를 선택하여 스타일링! .field는 그냥 div라 :focus 아니됨! */ 
 .field:has(input:focus) {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 6px rgb( 131 208 156 / .25 );
 }
 
 .field.type_small {
